@@ -19,7 +19,6 @@ if __name__ == '__main__':
     ax[1].title.set_text("Freq: 120Hz; Phase: -pi/3")
     ax[2].title.set_text("Freq: 60hz; Phase: +pi/3")
 
-
     # esantionare
     fs = 200
     tn = np.arange(0, 0.03, 1/fs)
