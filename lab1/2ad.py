@@ -18,7 +18,6 @@ if __name__ == '__main__':
     ax[1].plot(t, x, 'b')
     ax[1].title.set_text("Sinusoidal 800Hz 3sec")
 
-    
     freq = 240
     samples = 1000
     t = np.linspace(0, 0.025, samples)
