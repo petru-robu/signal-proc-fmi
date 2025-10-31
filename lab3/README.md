@@ -1,0 +1,1 @@
+# Lab 3: Transformata Fourier - Partea I
