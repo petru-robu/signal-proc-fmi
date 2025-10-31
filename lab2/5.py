@@ -31,5 +31,5 @@ if __name__ == '__main__':
 
     fig.suptitle('Concatenated Signals', fontsize=16)
     fig.tight_layout()
-    plt.savefig("./img/5.svg")
+    #plt.savefig("./img/5.svg")
     plt.show()
