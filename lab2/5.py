@@ -18,13 +18,13 @@ if __name__ == '__main__':
     fig, ax = plt.subplots(3, figsize=(10,6))
 
     ax[0].plot(t[:400], sine1[:400], 'r')
-    ax[0].set_title('Sine 400Hz')
+    ax[0].text.set_title('Sine 400Hz')
 
     ax[1].plot(t[:400], sine2[:400], 'g')
-    ax[1].set_title('Sine 800Hz')
+    ax[1].text.set_title('Sine 800Hz')
 
     ax[2].plot(comb_t[:800], comb_sine[:800], 'b')
-    ax[2].set_title('Combined')
+    ax[2].text.set_title('Combined')
 
     sd.play(comb_sine, sr)
     sd.wait()
