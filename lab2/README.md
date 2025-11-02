@@ -10,6 +10,8 @@
 # Ex 5
 ![5.svg](img/5.svg)
 # Ex 6
-![6.svg](img/5.svg)
+![6.svg](img/6.svg)
 # Ex 7
-![7.svg](img/5.svg)
+![7.svg](img/7.svg)
+# Ex 8
+![8.svg](img/8.svg)
