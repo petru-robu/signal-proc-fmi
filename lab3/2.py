@@ -1,32 +1,28 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+from helpers import colored_line_between_pts
 
-def animate(num, x, y, circ):
-    circ.set_data(x[:num], y[:num])
-    return circ
+if __name__ == '__main__':
+    samples = 1000
+    freq = 10
+    t = np.linspace(0, 1, samples)
+    sine = np.sin(3 * freq * np.pi * t)
 
-fig, ax = plt.subplots(2)
+    fig, ax = plt.subplots(3, 2, figsize=(12, 12))
 
-N = 1000
-freq = 10
+    idx = 0
+    for u in [1, 2, 5, 7, 13, freq]:
+        wrapping = sine * np.exp(-2j * np.pi * u * t)
+        d = np.hypot(np.real(wrapping), np.imag(wrapping))
 
-#plot the signal
-x = np.linspace(0, 1, N)
-x_n = np.sin(2 * freq * np.pi * x)
-ax[0].plot(x, x_n)
+        ax[idx//2, idx%2].set_aspect('equal')
+        ax[idx//2, idx%2].plot(np.real(wrapping), np.imag(wrapping))
+        ax[idx//2, idx%2].set_title(f'wrapping freq = {u}')
 
-#plot the circles
-for u in [1, 2, 5, 7, 13]:
-    y_n = x_n * np.exp(-2j * np.pi * u * x)
-    ax[1].set_aspect('equal')
-    ax[1].plot(np.real(y_n), np.imag(y_n))
-    plt.savefig(f'circle_{u}hz.svg')
-    plt.cla()
+        colored_line_between_pts(np.real(wrapping), np.imag(wrapping), d, ax[idx//2, idx%2], linewidth=1)
+        idx += 1
 
-u = 2
-y_n = x_n * np.exp(-2j * np.pi * u * x)
-ax[1].set_aspect('equal')
-ax[1].plot(np.real(y_n), np.imag(y_n))
 
-plt.show()
+    plt.tight_layout()
+    plt.savefig('./img/2.svg')
+    plt.show()
