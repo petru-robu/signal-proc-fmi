@@ -30,3 +30,18 @@ Spectrograma pentru a.wav:
 
 Side by side:
 ![6all.svg](img/6all.svg)
+
+# Ex 7
+Puterea unui semnal este P_semnal = 90dB. Se cunoaste raportul semnal-
+zgomot, SNR_db = 80dB. Care este puterea zgomotului?
+
+```
+P_semnal = 90dB
+SNR_db = 80db
+SNR_db = 10lg(SNR) => SNR = 10 ^ (SNR_db / 10)
+
+SNR = P_semnal / P_zgomot => P_zgomot = P_semnal / (10 ^ (SNR_db / 10)) =
+= 90 / (10 ^ 8) = 9  * 10^-7 dB
+
+P_zgomot = 9  * 10^-7 dB
+```
