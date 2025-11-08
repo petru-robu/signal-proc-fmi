@@ -59,36 +59,42 @@ def time_dft(x):
     samples = len(x)
     my_ft_t0 = time.time()
     my_ft = dft(signal)
-    my_ft = np.abs(my_ft[:samples // 2])
     my_ft_t1 = time.time()
     return my_ft_t1 - my_ft_t0
 
+def time_my_fft_o(x):
+    samples = len(x)
+    my_ft_o_t0 = time.time()
+    my_ft = my_fft_optimized(signal)
+    my_ft_o_t1 = time.time()
+    return my_ft_o_t1 - my_ft_o_t0
 
 if __name__ == '__main__':
     vals = [128, 256, 512, 1024, 2048, 4096, 8192] 
 
-    npfft_times, dft_times, fft_times = [], [], []
+    npfft_times, dft_times, fft_times, fft_o_times = [], [], [], []
     for N in vals:
         signal = init_signal(N)
         t_npfft = time_npfft(signal)
         t_dft = time_dft(signal)
         t_fft = time_fft(signal)
+        o_fft = time_my_fft_o(signal)
 
         print(f'N = {N} | np.fft = {t_npfft} | fft = {t_fft} | dft = {t_dft}')
         
         npfft_times.append(t_npfft)
         dft_times.append(t_dft)
         fft_times.append(t_fft)
-        fft_optim_times.append(o_fft)
+        fft_o_times.append(o_fft)
 
     plt.figure(figsize=(8, 6))
-    plt.title('Comparing speed between np.fft, my FFT and my DFT')
+    plt.title('Comparing speed between np.fft, my FFT, my FFT_O and my DFT')
     plt.grid(True)
     plt.plot(vals, np.log(npfft_times), 'r')
     plt.plot(vals, np.log(dft_times), 'b')
     plt.plot(vals, np.log(fft_times), 'y')
-    plt.plot(vals, np.log(fft_optim_times), 'purple')
-    plt.legend(['np.fft', 'dft', 'my_fft'])
+    plt.plot(vals, np.log(fft_o_times), 'purple')
+    plt.legend(['np.fft', 'dft', 'my_fft', 'my_fft_o'])
     
     plt.tight_layout()
     plt.savefig('./img/1.svg')
