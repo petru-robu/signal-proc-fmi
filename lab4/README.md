@@ -22,7 +22,17 @@ fs > 2fmax => fs > 400Hz
 
 ```
 # Ex 5
-Fisierele audio cu vocalele inregistrate sunt: audio/a.wav, audio/e.wav, ...
+Fisierele audio cu vocalele inregistrate sunt:
+
+```
+audio/
+├─ a.wav
+├─ e.wav
+├─ i.wav
+├─ o.wav
+└─ u.wav
+```
+
 
 # Ex 6
 Spectrograma pentru a.wav:
