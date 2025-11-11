@@ -1,38 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots(3, figsize=(12, 9))
+fig, at = plt.subplots(3, figsize=(12, 9))
 
 if __name__ == '__main__':
-    f, fs = 5, 4
-    t = np.linspace(0, 1, 1000, endpoint=False)
-    sine = np.sin(2 * np.pi * f * t)
+    t = np.linspace(0, 1, 2000, endpoint=False) # nu esantionez ultimul
 
-    t_e = np.linspace(0, 1, fs, endpoint=False)
-    sine_e = np.sin(2 * np.pi * f * t_e)
+    fs = 7
+    t_e = np.linspace(0, 1, fs, endpoint=False) # nu esantionez ultimul
+ 
+    f = 1
+    f1 = f + 1*fs
+    f2 = f + 2*fs
+    f3 = f + 3*fs
 
-    fig.suptitle(f'Aliasing with fs={fs}Hz sampling frequency')
+    plt.suptitle(f'Aliasing with fs = {fs}Hz, base freq f={f}Hz')
 
-    ax[0].plot(t, sine, 'g')
-    ax[0].stem(t_e, sine_e, markerfmt= 'ko', linefmt = 'k-', basefmt='k-')
-    ax[0].title.set_text(f'f = {f}Hz')
+    at[0].plot(t, np.sin(2 * np.pi * f1 * t ), 'y')
+    at[0].stem(t_e, np.sin(2 * np.pi * f1 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    at[0].set_title(f"f1={f1} Hz")
 
-    f_al = f + fs
-    sine_al = np.sin(2 * np.pi * f_al * t)
-    sine_al_e = np.sin(2 * np.pi * f_al * t_e)
-    ax[1].plot(t, sine_al, 'r')
-    ax[1].stem(t_e, sine_e, markerfmt= 'ko', linefmt = 'k-', basefmt='k-')
-    ax[1].stem(t_e, sine_al_e, markerfmt= 'ko', linefmt = 'k-', basefmt='k-')
-    ax[1].title.set_text(f'f = {f_al}Hz')
+    at[1].plot(t, np.sin(2 * np.pi * f2 * t), 'purple')
+    at[1].stem(t_e, np.sin(2 * np.pi * f2 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    at[1].set_title(f"f2={f2} Hz")
 
-    f_al = f + 2 * fs
-    sine_al = np.sin(2 * np.pi * f_al * t)
-    sine_al_e = np.sin(2 * np.pi * f_al * t_e)
-    ax[2].plot(t, sine_al, 'b')
-    ax[2].stem(t_e, sine_e, markerfmt= 'ko', linefmt = 'k-', basefmt='k-')
-    ax[2].stem(t_e, sine_al_e, markerfmt= 'ko', linefmt = 'k-', basefmt='k-')
-    ax[2].title.set_text(f'f = {f_al}Hz')
+    at[2].plot(t, np.sin(2 * np.pi * f3 * t), 'green')
+    at[2].stem(t_e, np.sin(2 * np.pi * f3 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    at[2].set_title(f"f3={f3} Hz")
 
-    plt.tight_layout()
-    plt.savefig('./img/2.svg')
+
+    fig.tight_layout()
+    fig.savefig("./img/2.svg")
     plt.show()

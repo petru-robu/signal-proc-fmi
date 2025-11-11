@@ -1,6 +1,12 @@
 # Lab 4: Transformata Fourier - Partea II
 
 # Ex 1
+Comparatie intre implementari de FFT-uri.
+- FFT-ul din numpy
+- FFT-ul meu recursiv
+- FFT-ul meu optimizat a.i. sa apleze FFT pe matrice pentru valori < 32. 
+- DFT-ul meu vectorizat cu matrice
+
 ![1.svg](img/1.svg) 
 
 # Ex 2
@@ -35,11 +41,15 @@ audio/
 
 
 # Ex 6
-Spectrograma pentru a.wav:
+Spectrograma de mana:
 ![6.svg](img/6.svg)
 
-Side by side:
+Spectrograma din scipy (decimat). Fara decimare => svg ft detaliat( > 200mb)
+![6sci.svg](img/6sci.svg)
+
+Comparatie intre vocalele inregistrate (spectograma de mana):
 ![6all.svg](img/6all.svg)
+
 
 # Ex 7
 Puterea unui semnal este P_semnal = 90dB. Se cunoaste raportul semnal-

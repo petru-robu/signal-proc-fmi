@@ -2,18 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 
-def stereoToMono(audiodata):
-    newaudiodata = []
-    for i in range(len(audiodata)):
-        d = (audiodata[i][0] + audiodata[i][1]) / 2
-        newaudiodata.append(d)
-    return np.array(newaudiodata, dtype='int16')
+def stereoToMono(sgn):
+    if sgn.ndim == 2:
+        return sgn.mean(axis=1)
 
 if __name__ == '__main__':
     # Read signal
-    audio_path = './audio/a.wav'
+    audio_path = './audio/cargo.wav'
     rate, sgn = scipy.io.wavfile.read(audio_path)
-    sgn = stereoToMono(sgn)
+    sgn = stereoToMono(sgn).astype(np.float32)
+    sgn = sgn[:len(sgn)//8]
 
     # Split in groups
     N = len(sgn)
@@ -45,9 +43,13 @@ if __name__ == '__main__':
         extent=[0, len(groups), 0, rate/2]
     )
 
+    #ax.plot(sgn)
     ax.set_xlabel('Group')
     ax.set_ylabel('Frequency')
+    ax.set_title(f"My spectrogram of {audio_path.split('/')[-1]}")
     fig.colorbar(im, ax=ax, label='Magnitude')
+
+
 
     plt.tight_layout()
     plt.savefig('./img/6.svg')

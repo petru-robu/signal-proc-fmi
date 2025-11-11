@@ -4,37 +4,35 @@ import matplotlib.pyplot as plt
 fig, ax = plt.subplots(3, figsize=(12, 9))
 
 if __name__ == '__main__':
-    f, fs = 7, 7
-    t = np.linspace(0, 1, 1000, endpoint=False)
-    sine = np.sin(2 * np.pi * f * t)
+    t = np.linspace(0, 1, 2000, endpoint=False) # nu esantionez ultimul
 
-    N = 8
-    t_e = np.arange(N) / fs
-    t_e = t_e[:-1]
+    fs_init= 7
+    fs = 25
+    t_e = np.linspace(0, 1, fs, endpoint=False) # nu esantionez ultimul
 
-    #print(np.arange(N) / fs)
-    sine_e = np.sin(2 * np.pi * f * t_e)
+    f = 1
+    f1 = f + 1*fs_init
+    f2 = f + 2*fs_init
+    f3 = f + 3*fs_init
 
-    fig.suptitle(f'Aliasing with fs={fs}Hz sampling frequency')
+    plt.suptitle(f'Aliasing with fs = {fs}Hz, base freq f={f}Hz')
 
-    ax[0].plot(t, sine, 'g')
-    ax[0].stem(t_e, sine_e, markerfmt= 'go', linefmt = 'g-', basefmt='g-')
-    ax[0].title.set_text(f'f = {f}Hz')
+    ax[0].plot(t, np.sin(2 * np.pi * f1 * t ), 'y')
+    ax[0].stem(t_e, np.sin(2 * np.pi * f1 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    ax[0].set_title(f"f1={f1} Hz - doesn't alias anymore")
 
-    f_al = f + fs
-    sine_al = np.sin(2 * np.pi * f_al * t)
-    sine_al_e = np.sin(2 * np.pi * f_al * t_e)
-    ax[1].plot(t, sine_al, 'r')
-    ax[1].stem(t_e, sine_e, markerfmt= 'go', linefmt = 'g-', basefmt='g-')
-    ax[1].title.set_text(f'f = {f_al}Hz')
+    ax[1].plot(t, np.sin(2 * np.pi * f2 * t), 'purple')
+    ax[1].stem(t_e, np.sin(2 * np.pi * f2 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    ax[1].stem(t_e, np.sin(2 * np.pi * f1 * t_e), markerfmt='ro', linefmt='r', basefmt='r--')
+    ax[1].set_title(f"f2={f2} Hz - doesn't alias anymore")
 
-    f_al = f + 2 * fs
-    sine_al = np.sin(2 * np.pi * f_al * t)
-    sine_al_e = np.sin(2 * np.pi * f_al * t_e)
-    ax[2].plot(t, sine_al, 'b')
-    ax[2].stem(t_e, sine_e, markerfmt= 'go', linefmt = 'g-', basefmt='g-')
-    ax[2].title.set_text(f'f = {f_al}Hz')
+    ax[2].plot(t, np.sin(2 * np.pi * f3 * t), 'green')
+    ax[2].stem(t_e, np.sin(2 * np.pi * f3 * t_e), markerfmt='ko', linefmt='k', basefmt='k--')
+    ax[2].stem(t_e, np.sin(2 * np.pi * f2 * t_e), markerfmt='bo', linefmt='b', basefmt='b--')
+    ax[2].stem(t_e, np.sin(2 * np.pi * f1 * t_e), markerfmt='ro', linefmt='r', basefmt='r--')
+    ax[2].set_title(f"f3={f3} Hz - doesn't alias anymore")
 
-    plt.tight_layout()
-    plt.savefig('./img/2.svg')
+
+    fig.tight_layout()
+    fig.savefig("./img/3.svg")
     plt.show()
