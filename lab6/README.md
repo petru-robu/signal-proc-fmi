@@ -21,9 +21,7 @@ Cu semnal rectangular:
 ![5.svg](img/5.svg)
 
 # Ex 6
-a, b: 
 ![6a.svg](img/6a.svg)
-c, d:
 
 Frecventa Nyquist este jumatate din frecventa de esantionare: $ F_{N} = \frac{f_{s}}{2} $
 
@@ -35,6 +33,5 @@ Frecventa normalizata la Nyquits va fi: $f_{n} = \frac{f_{c}}{f_{N}} = 0.39 Hz$
 
 ![6b.svg](img/6b.svg)
 
-e, f:
 ![6c.svg](img/6c.svg)
 
