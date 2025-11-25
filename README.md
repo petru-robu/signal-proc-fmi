@@ -7,3 +7,7 @@
 [Lab 3: Transformata Fourier - Partea I](lab3/README.md)
 
 [Lab 4: Transformata Fourier - Partea II](lab4/README.md)
+
+[Lab 5: Transformata Fourier - Partea a III-a](lab5/README.md)
+
+[Lab 6: Convolutie, filtre](lab6/README.md)
