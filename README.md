@@ -1,5 +1,8 @@
 # Laborator procesarea semnalelor FMI
+
 ## Index: 
+[Tema Codare JPEG](tema-codare-jpeg/Tema.md)
+
 [Lab 01: Introducere](lab1/README.md)
 
 [Lab 02: Domeniul timp](lab2/README.md)
@@ -15,6 +18,10 @@
 [Lab 07: Procesarea imaginilor](lab7/README.md)
 
 [Lab 08: Serii de timp - Partea I](lab8/README.md)
+
+[Lab 09: Serii de timp - Partea II](lab9/README.md)
+
+[Lab 10: Serii de timp - Partea III](lab10/README.md)
 
 ## Environment
 ```bash
