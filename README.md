@@ -1,13 +1,25 @@
 # Laborator procesarea semnalelor FMI
 ## Index: 
-[Lab 1: Introducere](lab1/README.md)
+[Lab 01: Introducere](lab1/README.md)
 
-[Lab 2: Domeniul timp](lab2/README.md)
+[Lab 02: Domeniul timp](lab2/README.md)
 
-[Lab 3: Transformata Fourier - Partea I](lab3/README.md)
+[Lab 03: Transformata Fourier - Partea I](lab3/README.md)
 
-[Lab 4: Transformata Fourier - Partea II](lab4/README.md)
+[Lab 04: Transformata Fourier - Partea II](lab4/README.md)
 
-[Lab 5: Transformata Fourier - Partea a III-a](lab5/README.md)
+[Lab 05: Transformata Fourier - Partea a III-a](lab5/README.md)
 
-[Lab 6: Convolutie, filtre](lab6/README.md)
+[Lab 06: Convolutie, filtre](lab6/README.md)
+
+[Lab 07: Procesarea imaginilor](lab7/README.md)
+
+[Lab 08: Serii de timp - Partea I](lab8/README.md)
+
+## Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate    
+pip install --upgrade pip
+pip install -r requirements.txt
+```

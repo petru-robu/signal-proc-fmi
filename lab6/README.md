@@ -1,7 +1,11 @@
 # Laboratorul 6: Convolutie. Filtre
 
 # Ex 1
+Pentru `B = 1`:
 ![1.svg](img/1.svg)
+
+Pentru `B = 2`:
+![1-2.svg](img/1-2.svg)
 
 # Ex 2
 Cu semnal random:
@@ -23,7 +27,7 @@ Cu semnal rectangular:
 # Ex 6
 ![6a.svg](img/6a.svg)
 
-Frecventa Nyquist este jumatate din frecventa de esantionare: $ F_{N} = \frac{f_{s}}{2} $
+Frecventa Nyquist este jumatate din frecventa de esantionare: $F_{N} = \frac{f_{s}}{2}$
 
 Pentru semnalul din Train.csv, $f_{s} = 1/3600 = 2.78 \cdot 10^{-4} Hz$. (esantioanele sunt din ora in ora).
 

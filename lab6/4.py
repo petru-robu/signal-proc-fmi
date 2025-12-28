@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots(2, figsize = (10, 10))
+fig, ax = plt.subplots(3, figsize = (10, 10))
 
 if __name__ == '__main__':
     # esantioane
@@ -21,6 +21,13 @@ if __name__ == '__main__':
     shift = np.argmax(np.abs(rec)) # valoarea maxima
     print("Recovered shift:", shift) # shiftarea la dreapta
     
+    ax[2].set_title('Recovered shift')
+    ax[2].plot(np.arange(0, len(rec)), rec, color='magenta', label='reconstructie')
+    ax[2].legend()
+    ax[2].grid(True)
+    ax[2].set_xticks(range(len(rec)))
+    
+    
     # prima formula
     rec = np.fft.ifft(np.conjugate(np.fft.fft(x)) * np.fft.fft(y))
     #print(rec)
@@ -34,7 +41,7 @@ if __name__ == '__main__':
     ax[0].legend()
     ax[0].grid(True)
     
-    ax[1].set_title('Rec')
+    ax[1].set_title('Recovered shift:')
     ax[1].plot(np.arange(0, len(rec)), rec, color='magenta', label='reconstructie')
     ax[1].legend()
     ax[1].grid(True)

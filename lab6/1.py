@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 fig, ax = plt.subplots(2, 2, figsize = (10,8))
 
 if __name__ == '__main__':
-    B = 1
+    B = 2
     
     t = np.linspace(-3, 3, 1000)
     sinc = np.sinc(B * t) * np.sinc(B * t)
@@ -18,8 +18,6 @@ if __name__ == '__main__':
         e_t = np.arange(0, 3.001, 1/fs)
         e_t = np.concatenate([-e_t[::-1][:-1], e_t]) 
         e_sinc = np.sinc(B * e_t) * np.sinc(B * e_t)
-
-        #print(e_t)
 
         ts = 1/fs
         rec = np.zeros_like(t)
@@ -39,7 +37,7 @@ if __name__ == '__main__':
     
         
     fig.tight_layout()
-    plt.savefig('./img/1.svg')
+    plt.savefig('./img/1-2.svg')
     plt.show()
     
     
