@@ -1,7 +1,7 @@
 # Laborator procesarea semnalelor FMI
 
 ## Index: 
-[Tema Codare JPEG](tema-codare-jpeg/Tema.md)
+[Tema Codare JPEG](https://github.com/petru-robu/jpeg)
 
 [Lab 01: Introducere](lab1/README.md)
 
